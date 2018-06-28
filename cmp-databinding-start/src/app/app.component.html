@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+     <app-cockpit
+      (serverCreated)="onServerCreated($event)"
+      (blueprintCreated)="onblueprintCreated($event)"
+     ></app-cockpit>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-toolbar">
+        <button class="btn btn-warning" (click)="onChangeFirst()">change first element</button>
+        <button class="btn btn-danger" (click)="onDestroy()">Destroy first element</button>
+      </div>
+      <br><br>
+       <app-server-element 
+          *ngFor="let serverElement of serverElements"
+          [element]="serverElement"
+          [name] = "serverElement.name"
+       >
+      <!-- the html code present in between app-server-element tag will be displayed in 
+      server-element.component.html page -->
+        <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">
+            {{ serverElement.content }}
+          </strong>
+          <em *ngIf="serverElement.type === 'blueprint'" style="color:blue">
+            {{ serverElement.content }}
+          </em>
+        </p>
+        <p #paraRef>This is just test</p>
+      </app-server-element>
+
+       <!-- using alias inside the Input decorator in (server-element.component.ts) 
+        <app-server-element 
+          *ngFor="let serverElement of serverElements" 
+          [ele]="serverElement">
+        </app-server-element>
+         -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <!-- <div class="panel-heading">{{ element.name }}</div> -->
+  <div class="panel-heading">{{ name }}</div>
+  <div class="panel-body">
+    <!-- <p>
+      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+      <em *ngIf="element.type === 'blueprint'" style="color:blue">{{ element.content }}</em>
+    </p> -->
+    <!-- Above commented html element can be displayed using ng-content directive.
+    For this, we have to write the commented code in app.component.html and that will be
+    rendered in this page where ng-content directive is present -->
+    <ng-content></ng-content>
+  </div>
+</div>

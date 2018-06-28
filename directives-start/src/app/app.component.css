@@ -1,0 +1,10 @@
+.container {
+  margin-top: 30px;
+}
+
+.onlyOdd{
+  background-color: lightsalmon;
+}
+.onlyEven{
+  background-color: lightgreen;
+}

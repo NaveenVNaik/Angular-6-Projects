@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="btnToggle()">{{btnname}}</button>
+      <br><br>
+      <!-- <div *ngIf="onlyOdd">
+        <p [ngStyle]="{'color':'salmon','font-weight': 'bold'}">Only Odd Numbers</p>
+        <ul class="list-group" *ngFor="let number of numbers">
+          <li class="list-group-item" *ngIf="number % 2 !== 0"
+              [ngClass]="{onlyOdd:onlyOdd}"
+          >{{number}}</li>
+        </ul>
+      </div> -->
+
+      <!-- Custome structural directive - appUnlessStructural-->
+      <div *appUnlessStructural="!onlyOdd">
+        <p [ngStyle]="{'color':'salmon','font-weight': 'bold'}">Only Odd Numbers</p>
+        <ul class="list-group" *ngFor="let number of numbers">
+          <li class="list-group-item" *ngIf="number % 2 !== 0" [ngClass]="{onlyOdd:onlyOdd}">{{number}}</li>
+        </ul>
+      </div>
+       
+      <div *ngIf="!onlyOdd">
+        <p [ngStyle]="{'color':'green','font-weight': 'bold'}">Only Even Numbers</p>
+        <ul class="list-group" *ngFor="let number of numbers">
+          <li class="list-group-item" *ngIf="number % 2 === 0"
+               [ngClass]="{onlyEven:!onlyOdd}"
+          >{{number}}</li>
+        </ul>
+      </div>
+      <p basicHighlightDirective>Basic Directive Demo</p>
+      <p appHiglightUsingRender2>Render2 Directive Demo</p>
+      <p appHighlightUsingHostlistner>Highlight Using HostListener</p>
+      <p highlightUsingHostbinding>Highlight Using HostBinding</p>
+      <!-- For property value assignment we need to use single quote inside
+            double quote, if the property is enclosed in square bracket -->
+      <p appDirectivePropertyBinding 
+        [defaultColor]="'yellow'"
+        [highlightColor]="'red'"
+      >Highlight Using Directive Property Binding</p>
+      <!-- For property value assignment we can to use single quote or
+          double quote, if the property is NOT enclosed in square bracket -->
+      <p  [appDirectiveAsProperty]="'black'" 
+          highlightColor="purple"
+      >Highlight Using Directive As Property</p>
+    </div>
+  </div>
+</div>
