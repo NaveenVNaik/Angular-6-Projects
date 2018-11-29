@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <button class="btn btn-primary" (click)="onReload()">Reload Servers</button>
+      <a
+        [routerLink]="['/servers',server.id]"
+        [queryParams]="{allowEdit:server.id ===2 ? '1' : '0'}"
+        class="list-group-item"
+        *ngFor="let server of servers">
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <router-outlet></router-outlet>
+    <hr>
+    <p>Route Absoluet and Relative Path Practice</p>
+    <p>For Servers Component</p>
+    <!-- Absoluet path -->
+    <a routerLink="/servers">In Servers Component</a>
+    <br>
+    <!-- Relative path  -->
+    <a routerLink="servers">In Servers Component</a>
+    <br>
+    <!-- Relative path in another way -->
+    <a routerLink="./servers">In Servers Component</a>
+    <br>
+    <!-- Relativr path  - go up one path from the current route path -->
+    <a routerLink="../servers">In Servers Component</a>
+    <br>
+    <!-- Relativr path  - go up two path from the current route path -->
+    <!-- <a routerLink="../../servers">In Servers Component</a> -->
+    <p>For Users Component</p>
+    <!-- Absoluet path -->
+    <a routerLink="/users">In Servers Component</a>
+    <br>
+    <!-- Relative path  -->
+    <a routerLink="users">In Servers Component</a>
+    <br>
+    <!-- Relative path in another way -->
+    <a routerLink="./users">In Servers Component</a>
+    <br>
+    <!-- Relativr path  - go up one path from the current route path -->
+    <a routerLink="../users">In Servers Component</a>
+    <br>
+    <!-- Relativr path  - go up two path from the current route path -->
+    <!-- <a routerLink="../../users">In Servers Component</a> -->
+  </div>
+</div>
+
